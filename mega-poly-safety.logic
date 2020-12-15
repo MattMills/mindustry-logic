@@ -1,0 +1,30 @@
+ulocate building rally false @copper outx outy found building
+radar enemy any any distance ripple1 1 result
+radar enemy any any distance foreshadow1 1 result2
+read status cell2 0
+jump 23 notEqual result null
+jump 23 notEqual result2 null
+jump 12 equal status 1
+ubind @mega
+ucontrol stop 0 0 0 0 0
+ubind @poly
+ucontrol stop 0 0 0 0 0
+write 1 cell2 0
+sensor totalpower node1 @powerNetCapacity
+sensor storedpower node1 @powerNetStored
+op mul 90power totalpower 0.9
+op lessThan panic storedpower 90power
+jump 20 equal panic false
+draw clear 255 255 0 0 0 0
+drawflush display1
+end
+draw clear 0 255 0 0 0 0
+drawflush display1
+end
+ubind @mega
+ucontrol move outx outy 0 0 0
+ubind @poly
+ucontrol move outx outy 0 0 0
+write 2 cell2 0
+draw clear 255 0 0 255 0 0
+drawflush display1
