@@ -1,30 +1,13 @@
-sensor glass_lvl nucleus1 @metaglass
-sensor copper_lvl nucleus1 @copper
-sensor lead_lvl nucleus1 @lead
-sensor titanium_lvl nucleus1 @titanium
-sensor graphite_lvl nucleus1 @graphite
-sensor thorium_lvl nucleus1 @thorium
-sensor silicon_lvl nucleus1 @silicon
-sensor plast_lvl nucleus1 @plastanium
-sensor surge_lvl nucleus1 @surge-alloy
-sensor phase_lvl nucleus1 @phase-fabric
-op lessThan glass_en glass_lvl 21000
-op lessThan copper_en copper_lvl 21000
-op lessThan lead_en lead_lvl 21000
-op lessThan titanium_en titanium_lvl 21000
-op lessThan graphite_en graphite_lvl 21000
-op lessThan thorium_en thorium_lvl 21000
-op lessThan silicon_en silicon_lvl 21000
-op lessThan plast_en plast_lvl 21000
-op lessThan phase_en phase_lvl 21000
-op lessThan surge_en surge_lvl 21000
-control enabled conveyor1 glass_en 0 0 0
-control enabled conveyor2 copper_en 0 0 0
-control enabled conveyor3 lead_en 0 0 0
-control enabled conveyor4 titanium_en 0 0 0
-control enabled conveyor5 graphite_en 0 0 0
-control enabled conveyor6 thorium_en 0 0 0
-control enabled conveyor7 silicon_en 0 0 0
-control enabled conveyor8 surge_en 0 0 0
-control enabled conveyor9 plast_en 0 0 0
-control enabled conveyor10 phase_en 0 0 0
+set i 0
+sensor max nucleus1 @itemCapacity
+getlink link i
+jump 12 equal link null
+sensor linktype link @type
+sensor itemtype link @firstItem
+jump 10 equal itemtype null
+sensor itemcount nucleus1 itemtype
+op lessThan enable itemcount max
+control enabled link enable 0 0 0
+op add i i 1
+jump 2 notEqual link null
+end
