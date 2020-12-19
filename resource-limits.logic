@@ -1,11 +1,14 @@
 set i 0
 sensor max nucleus1 @itemCapacity
 getlink link i
-jump 13 equal link null
+jump 16 equal link null
 sensor linktype link @type
 sensor itemtype link @firstItem
-jump 11 equal itemtype null
-jump 11 notEqual linktype @titanium-conveyor
+jump 14 equal itemtype null
+jump 11 equal linktype @conveyor
+jump 11 equal linktype @titanium-conveyor
+jump 11 equal linktype @armored-conveyor
+jump 14 always linktype @armored-conveyor
 sensor itemcount nucleus1 itemtype
 op lessThan enable itemcount max
 control enabled link enable 0 0 0
