@@ -1,0 +1,9 @@
+jump 3 notEqual @unit null
+ubind @poly
+print "noop"
+ulocate damaged repair false @copper outx outy found building
+jump 8 equal found 0
+ucontrol approach outx outy 4 0 0
+ucontrol target outx outy 1 0 0
+jump 3 always found 0
+ucontrol stop 0 0 0 0 0
