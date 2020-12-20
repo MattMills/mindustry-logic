@@ -1,9 +1,12 @@
-jump 3 notEqual @unit null
+jump 5 notEqual @unit null
 ubind @poly
-print "noop"
+sensor unitflag @unit @flag
+jump 6 equal unitflag 99
+jump 1 notEqual unitflag 0
+ucontrol flag 99 0 0 0 0
 ulocate damaged repair false @copper outx outy found building
-jump 8 equal found 0
+jump 11 equal found 0
 ucontrol approach outx outy 4 0 0
 ucontrol target outx outy 1 0 0
-jump 3 always found 0
+jump 6 always found 0
 ucontrol stop 0 0 0 0 0
