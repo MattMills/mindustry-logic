@@ -10,3 +10,7 @@ It also runs a large display with green = no enemies and power availability > 90
 ## resource-limits.logic
 
 Basic script to stop belts at the max limit to save power / resources.
+
+## poly-healer.logic
+
+Makes 1 poly go heal everything that is damaged.
